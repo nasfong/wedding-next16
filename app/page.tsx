@@ -77,7 +77,7 @@ function HomeContent() {
 
         {/* Main Title */}
         <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8">
-          <h1 className="khmer-title text-4xl tracking-wide text-rose-900 sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="khmer-title text-2xl tracking-wide text-rose-900 sm:text-5xl md:text-6xl lg:text-7xl">
             សិរីមង្គលអាពាហ៍ពិពាហ៍
           </h1>
           <p className="khmer-elegant text-xl text-rose-800 sm:text-2xl md:text-3xl">
