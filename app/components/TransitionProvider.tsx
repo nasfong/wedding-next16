@@ -22,7 +22,6 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
   const startTransition = useCallback((callback: () => void) => {
-    // Navigate immediately
     callback();
   }, []);
 
@@ -34,10 +33,17 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
           initial={{ clipPath: 'circle(0% at 50% 50%)' }}
           animate={{ clipPath: 'circle(150% at 50% 50%)' }}
           transition={{
-            duration: 0.8,
+            duration: 2,
             ease: [0.76, 0, 0.24, 1],
           }}
-          style={{ willChange: 'clip-path' }}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            overflow: 'auto'
+          }}
         >
           {children}
         </motion.div>

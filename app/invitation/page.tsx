@@ -1,35 +1,39 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useTransition } from '../components/TransitionProvider';
+import { useAudio } from '../components/AudioProvider';
 
-export default function InvitationPage() {
+function InvitationContent() {
   const searchParams = useSearchParams();
   const clientName = searchParams.get('name');
-  const [isPlaying, setIsPlaying] = useState(false);
   const router = useRouter();
   const { startTransition } = useTransition();
+  const { isPlaying, toggleAudio, currentTime, duration, progressPercent } = useAudio();
+
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
 
   const galleries = [
-    { id: 1, name: 'វិចិត្រសាល ១', theme: 'bird', image: '/gallery/1.jpg' },
-    { id: 2, name: 'វិចិត្រសាល ២', theme: 'urban', image: '/gallery/2.jpg' },
-    { id: 3, name: 'វិចិត្រសាល ៣', theme: 'building', image: '/gallery/3.jpg' },
-    { id: 4, name: 'វិចិត្រសាល ៤', theme: 'urban', image: '/gallery/4.jpg' },
-    { id: 5, name: 'វិចិត្រសាល ៥', theme: 'neon lighting', image: '/gallery/5.jpg' },
-    { id: 6, name: 'វិចិត្រសាល ៦', theme: 'chair', image: '/gallery/6.jpg' },
-    { id: 7, name: 'វិចិត្រសាល ៧', theme: 'supermarket', image: '/gallery/7.jpg' },
-    { id: 8, name: 'វិចិត្រសាល ៨', theme: 'classic', image: '/gallery/8.jpg' },
+    { id: 1, name: 'វិចិត្រសាល ១', theme: 'bird', image: '/1.jpg' },
+    { id: 2, name: 'វិចិត្រសាល ២', theme: 'urban', image: '/2.jpg' },
+    { id: 3, name: 'វិចិត្រសាល ៣', theme: 'building', image: '/3.jpg' },
+    { id: 4, name: 'វិចិត្រសាល ៤', theme: 'urban', image: '/4.jpg' },
+    { id: 5, name: 'វិចិត្រសាល ៥', theme: 'neon lighting', image: '/5.jpg' },
+    { id: 6, name: 'វិចិត្រសាល ៦', theme: 'chair', image: '/6.jpg' },
+    { id: 7, name: 'វិចិត្រសាល ៧', theme: 'supermarket', image: '/7.jpg' },
+    { id: 8, name: 'វិចិត្រសាល ៨', theme: 'classic', image: '/8.jpg' },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-rose-50 via-white to-pink-50">
+    <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url(/bg.avif)' }}>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-rose-100 via-pink-50 to-rose-50 px-4 py-12 text-center sm:px-6 sm:py-16 md:py-20">
-        <div className="absolute inset-0 overflow-hidden opacity-20">
-          <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-rose-300 blur-3xl"></div>
-          <div className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-pink-300 blur-3xl"></div>
-        </div>
+      <section className="relative overflow-hidden px-4 py-12 text-center sm:px-6 sm:py-16 md:py-20">
+        <div className="absolute inset-0"></div>
         
         <div className="relative z-10 mx-auto max-w-4xl">
           <h1 className="khmer-title mb-6 text-4xl text-rose-900 sm:mb-8 sm:text-5xl md:text-6xl">
@@ -184,12 +188,19 @@ export default function InvitationPage() {
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="khmer-elegant mb-8 text-3xl text-rose-900">ទីតាំង</h2>
           <div className="mb-6 overflow-hidden rounded-2xl bg-white p-4 shadow-lg">
-            <div className="aspect-video w-full bg-rose-100 flex items-center justify-center">
-              <p className="khmer-body text-rose-600">ផែនទីទីតាំង</p>
-            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.2697889234614!2d103.8550638!3d13.3565772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3110168e8cf5e77f%3A0x6c3d33d7c5dd5e5e!2sSamphea%20Thmey%20Restaurant!5e0!3m2!1sen!2skh!4v1234567890123!5m2!1sen!2skh"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-xl"
+            ></iframe>
           </div>
           <a
-            href="https://maps.app.goo.gl/oCKbz14YVdSkx8Cn8"
+            href="https://maps.app.goo.gl/ZgezMyajuBCvuS8t7"
             target="_blank"
             rel="noopener noreferrer"
             className="khmer-body inline-block rounded-full bg-rose-500 px-8 py-4 text-lg font-medium text-white shadow-lg transition-all hover:bg-rose-600 hover:shadow-xl"
@@ -232,8 +243,12 @@ export default function InvitationPage() {
                 href={`/gallery/gallery-${gallery.id}`}
                 className="group relative overflow-hidden rounded-xl bg-white shadow-lg transition-all hover:scale-105 hover:shadow-2xl"
               >
-                <div className="aspect-square bg-gradient-to-br from-rose-200 to-pink-200 flex items-center justify-center">
-                  <span className="text-rose-400">{gallery.theme}</span>
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={gallery.image}
+                    alt={gallery.name}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
                 </div>
                 <div className="p-4">
                   <h3 className="khmer-body text-center font-semibold text-rose-900">{gallery.name}</h3>
@@ -253,16 +268,21 @@ export default function InvitationPage() {
             </p>
             <div className="mb-4 flex items-center justify-center gap-4">
               <button
-                onClick={() => setIsPlaying(!isPlaying)}
+                onClick={toggleAudio}
                 className="flex h-12 w-12 items-center justify-center rounded-full bg-rose-500 text-white shadow-lg transition-all hover:bg-rose-600"
               >
                 {isPlaying ? '⏸' : '▶'}
               </button>
               <div className="flex-1 rounded-full bg-rose-100 h-2">
-                <div className="h-2 w-0 rounded-full bg-rose-500"></div>
+                <div 
+                  className="h-2 rounded-full bg-rose-500 transition-all duration-100"
+                  style={{ width: `${progressPercent}%` }}
+                ></div>
               </div>
             </div>
-            <p className="text-sm text-rose-600">0:00 / 1:34</p>
+            <p className="text-sm text-rose-600">
+              {formatTime(currentTime)} / {formatTime(duration)}
+            </p>
           </div>
         </div>
       </section>
@@ -313,5 +333,13 @@ export default function InvitationPage() {
         }
       `}</style>
     </div>
+  );
+}
+
+export default function InvitationPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <InvitationContent />
+    </Suspense>
   );
 }
