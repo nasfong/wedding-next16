@@ -27,10 +27,11 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
       siteName: 'Wedding Invitation - Samnang & Sreyren',
       images: [
         {
-          url: '/images/gallery/8.jpg',
+          url: 'https://wedding.nasfong.site/images/gallery/8.jpg',
           width: 1200,
           height: 1600,
           alt: 'Wedding Invitation - Samnang Tangfong & Ngin Sreyren',
+          type: 'image/jpeg',
         },
       ],
       locale: 'km_KH',
@@ -40,7 +41,7 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
       card: 'summary_large_image',
       title,
       description,
-      images: ['/images/gallery/8.jpg'],
+      images: ['https://wedding.nasfong.site/images/gallery/8.jpg'],
     },
   };
 }

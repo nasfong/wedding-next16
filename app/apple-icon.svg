@@ -1,0 +1,6 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="180" height="180" fill="#fff1f2" rx="40"/>
+  <!-- Heart icon in rose-900 color -->
+  <path d="M90 155C90 155 20 120 20 65C20 52 25 40 40 35C55 30 65 35 75 47C82.5 56.5 87.5 65 90 70C92.5 65 97.5 56.5 105 47C115 35 125 30 140 35C155 40 160 52 160 65C160 120 90 155 90 155Z" fill="#881337" stroke="#881337" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

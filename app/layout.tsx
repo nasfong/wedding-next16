@@ -32,10 +32,11 @@ export const metadata: Metadata = {
     siteName: 'Wedding Invitation - Samnang & Sreyren',
     images: [
       {
-        url: '/images/gallery/8.jpg',
+        url: 'https://wedding.nasfong.site/images/gallery/8.jpg',
         width: 1200,
         height: 1600,
         alt: 'Wedding Invitation - Samnang Tangfong & Ngin Sreyren',
+        type: 'image/jpeg',
       },
     ],
     locale: 'km_KH',
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Wedding Invitation - សិរីមង្គលអាពាហ៍ពិពាហ៍",
     description: "យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញចូលរួមជាភ្ញៀវកិត្តិយស ក្នុងសិរីមង្គលអាពាហ៍ពិពាហ៍",
-    images: ['/images/gallery/8.jpg'],
+    images: ['https://wedding.nasfong.site/images/gallery/8.jpg'],
   },
   robots: {
     index: true,
@@ -57,10 +58,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
   },
 };
 
