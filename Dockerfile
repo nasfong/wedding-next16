@@ -31,10 +31,15 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Copy necessary files from builder
-COPY --from=builder /app/public ./public
+# Copy standalone files first
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+
+# Copy static assets
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+# CRITICAL: Copy public folder AFTER standalone to ensure files are accessible
+# In standalone mode, public files must be in the root /app/public directory
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 
 USER nextjs
 

@@ -28,22 +28,38 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Create audio element
-    const audio = new Audio('/OLICA - ភ្ជាប់និស្ស័យ - NISAI (ft. KZ) Long & Chan (Official Lyric Video).mp3');
+    // Create audio element with simple filename for better compatibility
+    // Renamed from Khmer characters to avoid encoding issues in Docker/production
+    const audioPath = '/wedding-song.mp3';
+    const audio = new Audio(audioPath);
     audio.loop = true; // Loop the audio
+    audio.preload = 'auto'; // Preload the audio for better performance
+    audio.volume = 0.7; // Set volume to 70%
     audioRef.current = audio;
 
     const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
-    const handleLoadedMetadata = () => setDuration(audio.duration);
+    const handleLoadedMetadata = () => {
+      console.log('Audio loaded successfully, duration:', audio.duration);
+      setDuration(audio.duration);
+    };
     const handleEnded = () => setIsPlaying(false);
     const handlePlay = () => setIsPlaying(true);
     const handlePause = () => setIsPlaying(false);
+    const handleError = (e: ErrorEvent | Event) => {
+      console.error('Audio failed to load:', e);
+      console.error('Audio src:', audio.src);
+      console.error('Audio error:', audio.error);
+    };
 
     audio.addEventListener('timeupdate', handleTimeUpdate);
     audio.addEventListener('loadedmetadata', handleLoadedMetadata);
     audio.addEventListener('ended', handleEnded);
     audio.addEventListener('play', handlePlay);
     audio.addEventListener('pause', handlePause);
+    audio.addEventListener('error', handleError);
+
+    // Log the audio source for debugging
+    console.log('Audio source:', audio.src);
 
     // Attempt to auto-play
     const playAudio = async () => {
@@ -51,9 +67,9 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
         await audio.play();
         setIsPlaying(true);
         setUserInteracted(true);
-      } catch {
+      } catch (error) {
         // Auto-play was prevented by browser
-        console.log('Auto-play prevented. Click anywhere to start music.');
+        console.log('Auto-play prevented. Click anywhere to start music.', error);
       }
     };
 
@@ -64,8 +80,8 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
       if (!userInteracted && audioRef.current) {
         audioRef.current.play().then(() => {
           setUserInteracted(true);
-        }).catch(() => {
-          // Still blocked
+        }).catch((error) => {
+          console.error('Failed to play audio on interaction:', error);
         });
       }
     };
@@ -79,6 +95,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
       audio.removeEventListener('ended', handleEnded);
       audio.removeEventListener('play', handlePlay);
       audio.removeEventListener('pause', handlePause);
+      audio.removeEventListener('error', handleError);
       document.removeEventListener('click', handleFirstInteraction);
       document.removeEventListener('keydown', handleFirstInteraction);
       audio.pause();
