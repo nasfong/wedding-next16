@@ -28,7 +28,7 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
   return (
     <TransitionContext.Provider value={{ startTransition }}>
       <AnimatePresence mode="wait" initial={false}>
-        <motion.div
+        {/* <motion.div
           key={pathname}
           initial={{ clipPath: 'circle(0% at 50% 50%)' }}
           animate={{ clipPath: 'circle(150% at 50% 50%)' }}
@@ -44,9 +44,9 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
             bottom: 0,
             overflow: 'auto'
           }}
-        >
+        > */}
           {children}
-        </motion.div>
+        {/* </motion.div> */}
       </AnimatePresence>
     </TransitionContext.Provider>
   );

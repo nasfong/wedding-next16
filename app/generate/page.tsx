@@ -13,7 +13,7 @@ export default function GenerateLinkPage() {
 
   const generateLink = () => {
     if (clientName.trim()) {
-      const link = `${baseUrl}/?name=${encodeURIComponent(clientName.trim())}`;
+      const link = `${baseUrl}/${encodeURIComponent(clientName.trim())}`;
       setGeneratedLink(link);
       setCopied(false);
     }
@@ -154,11 +154,11 @@ export default function GenerateLinkPage() {
             <div className="khmer-body space-y-2.5 text-xs text-rose-700 sm:space-y-3 sm:text-sm">
               <div className="break-all rounded-lg bg-rose-50 p-2.5 sm:p-3">
                 <strong className="block sm:inline">ឈ្មោះ / Name:</strong> លោក សុខ សំណាង<br className="sm:hidden" />
-                <strong className="mt-1 block sm:mt-0 sm:inline">Link:</strong> <code className="text-[10px] sm:text-xs">{baseUrl}/?name=លោក សុខ សំណាង</code>
+                <strong className="mt-1 block sm:mt-0 sm:inline">Link:</strong> <code className="text-[10px] sm:text-xs">{baseUrl}/លោក-សុខ-សំណាង</code>
               </div>
               <div className="break-all rounded-lg bg-rose-50 p-2.5 sm:p-3">
                 <strong className="block sm:inline">ឈ្មោះ / Name:</strong> Ms. Meey Lii & Honey<br className="sm:hidden" />
-                <strong className="mt-1 block sm:mt-0 sm:inline">Link:</strong> <code className="text-[10px] sm:text-xs">{baseUrl}/?name=Ms. Meey Lii & Honey</code>
+                <strong className="mt-1 block sm:mt-0 sm:inline">Link:</strong> <code className="text-[10px] sm:text-xs">{baseUrl}/Ms.-Meey-Lii-&-Honey</code>
               </div>
             </div>
           </div>

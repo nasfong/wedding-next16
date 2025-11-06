@@ -1,0 +1,108 @@
+<svg viewBox="0 0 800 1200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <!-- Beige background -->
+  <rect width="800" height="1200" fill="#f5f1e8"/>
+  
+  <!-- Subtle damask pattern -->
+  <defs>
+    <pattern id="damask" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <path d="M50 20 Q60 30 50 40 Q40 30 50 20 M50 40 Q45 50 50 60 Q55 50 50 40" 
+            fill="none" stroke="#e8e0d0" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+    
+    <!-- Ornamental corner -->
+    <g id="corner">
+      <path d="M0,0 Q20,0 30,10 Q40,20 40,40 L40,120" 
+            stroke="#c9a961" stroke-width="2" fill="none"/>
+      <path d="M0,40 Q10,35 15,30 Q20,25 20,15 Q20,10 15,8" 
+            stroke="#c9a961" stroke-width="1.5" fill="none"/>
+      <circle cx="18" cy="15" r="3" fill="#c9a961"/>
+      <path d="M40,60 Q50,60 55,65 Q60,70 60,80" 
+            stroke="#c9a961" stroke-width="1.5" fill="none"/>
+      <path d="M40,100 Q48,98 52,95 Q56,90 56,82" 
+            stroke="#c9a961" stroke-width="1.5" fill="none"/>
+      <!-- Scrollwork -->
+      <path d="M25,45 Q30,40 35,45 Q40,50 38,56 Q36,62 30,62 Q24,62 22,56" 
+            stroke="#c9a961" stroke-width="1.5" fill="none"/>
+      <path d="M30,85 Q28,80 32,76 Q36,72 40,74" 
+            stroke="#c9a961" stroke-width="1" fill="none"/>
+    </g>
+    
+    <!-- Top center ornament -->
+    <g id="topCenter">
+      <path d="M-40,0 Q-30,-5 -20,0 Q-10,5 0,0 Q10,-5 20,0 Q30,5 40,0" 
+            stroke="#c9a961" stroke-width="2" fill="none"/>
+      <path d="M-25,5 Q-20,8 -15,5 M15,5 Q20,8 25,5" 
+            stroke="#c9a961" stroke-width="1.5" fill="none"/>
+      <circle cx="0" cy="3" r="4" fill="#c9a961"/>
+    </g>
+    
+    <!-- Side ornament -->
+    <g id="sideOrnament">
+      <ellipse cx="0" cy="0" rx="8" ry="12" stroke="#c9a961" stroke-width="1.5" fill="none"/>
+      <path d="M-5,-8 Q0,-12 5,-8" stroke="#c9a961" stroke-width="1.5" fill="none"/>
+      <path d="M-5,8 Q0,12 5,8" stroke="#c9a961" stroke-width="1.5" fill="none"/>
+    </g>
+  </defs>
+  
+  <!-- Apply damask pattern -->
+  <rect width="800" height="1200" fill="url(#damask)"/>
+  
+  <!-- Outer border -->
+  <rect x="30" y="30" width="740" height="1140" 
+        stroke="#c9a961" stroke-width="3" fill="none"/>
+  
+  <!-- Inner border -->
+  <rect x="50" y="50" width="700" height="1100" 
+        stroke="#c9a961" stroke-width="1.5" fill="none"/>
+  
+  <!-- Top left corner -->
+  <g transform="translate(50, 50)">
+    <use href="#corner"/>
+  </g>
+  
+  <!-- Top right corner -->
+  <g transform="translate(750, 50) scale(-1, 1)">
+    <use href="#corner"/>
+  </g>
+  
+  <!-- Bottom left corner -->
+  <g transform="translate(50, 1150) scale(1, -1)">
+    <use href="#corner"/>
+  </g>
+  
+  <!-- Bottom right corner -->
+  <g transform="translate(750, 1150) scale(-1, -1)">
+    <use href="#corner"/>
+  </g>
+  
+  <!-- Top center ornament -->
+  <g transform="translate(400, 50)">
+    <use href="#topCenter"/>
+  </g>
+  
+  <!-- Bottom center ornament -->
+  <g transform="translate(400, 1150) scale(1, -1)">
+    <use href="#topCenter"/>
+  </g>
+  
+  <!-- Side ornaments -->
+  <g transform="translate(50, 400)">
+    <use href="#sideOrnament"/>
+  </g>
+  <g transform="translate(50, 600)">
+    <use href="#sideOrnament"/>
+  </g>
+  <g transform="translate(50, 800)">
+    <use href="#sideOrnament"/>
+  </g>
+  
+  <g transform="translate(750, 400)">
+    <use href="#sideOrnament"/>
+  </g>
+  <g transform="translate(750, 600)">
+    <use href="#sideOrnament"/>
+  </g>
+  <g transform="translate(750, 800)">
+    <use href="#sideOrnament"/>
+  </g>
+</svg>

@@ -15,26 +15,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Wedding Invitation - សិរីមង្គលអាពាហ៍ពិពាហ៍ | Samnang & Sreyren",
+  title: "Wedding Invitation - សិរីមង្គលអាពាហ៍ពិពាហ៍ | Tangfong & Sreyren",
   description: "យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញចូលរួមជាភ្ញៀវកិត្តិយស ក្នុងសិរីមង្គលអាពាហ៍ពិពាហ៍ កូនប្រុស សំណាង តាំងហ្វុង និង កូនស្រី ង៉ិន ស្រីរ៉េន នៅថ្ងៃអាទិត្យ ទី១៦ ខែវិច្ឆិកា ឆ្នាំ២០២៥",
-  keywords: ["Wedding Invitation", "សិរីមង្គលអាពាហ៍ពិពាហ៍", "Samnang Tangfong", "Ngin Sreyren", "Cambodia Wedding", "Khmer Wedding"],
-  authors: [{ name: "Samnang & Sreyren" }],
-  creator: "Samnang & Sreyren",
+  keywords: ["Wedding Invitation", "សិរីមង្គលអាពាហ៍ពិពាហ៍", "Samnang Tangfong", "Ngin Sreyren", "Tangfong", "Sreyren", "Cambodia Wedding", "Khmer Wedding"],
+  authors: [{ name: "Tangfong & Sreyren" }],
+  creator: "Tangfong & Sreyren",
   publisher: "Wedding Invitation",
   metadataBase: new URL('https://wedding.nasfong.site'),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     title: "Wedding Invitation - សិរីមង្គលអាពាហ៍ពិពាហ៍",
     description: "យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញចូលរួមជាភ្ញៀវកិត្តិយស ក្នុងសិរីមង្គលអាពាហ៍ពិពាហ៍ កូនប្រុស សំណាង តាំងហ្វុង និង កូនស្រី ង៉ិន ស្រីរ៉េន",
-    url: 'https://wedding.nasfong.site',
-    siteName: 'Wedding Invitation - Samnang & Sreyren',
+    siteName: 'Wedding Invitation - Tangfong & Sreyren',
     images: [
       {
-        url: 'https://wedding.nasfong.site/images/gallery/8.jpg',
+        url: 'https://wedding.nasfong.site/og-image.jpg',
         width: 1200,
-        height: 1600,
+        height: 630,
         alt: 'Wedding Invitation - Samnang Tangfong & Ngin Sreyren',
         type: 'image/jpeg',
       },
@@ -46,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Wedding Invitation - សិរីមង្គលអាពាហ៍ពិពាហ៍",
     description: "យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញចូលរួមជាភ្ញៀវកិត្តិយស ក្នុងសិរីមង្គលអាពាហ៍ពិពាហ៍",
-    images: ['https://wedding.nasfong.site/images/gallery/8.jpg'],
+    images: ['https://wedding.nasfong.site/og-image.jpg'],
   },
   robots: {
     index: true,
@@ -70,6 +66,22 @@ export default function RootLayout({
     <html lang="km" translate="no">
       <head>
         <meta name="google" content="notranslate" />
+        {/* Explicit Open Graph tags for Facebook/Messenger */}
+        <meta property="og:title" content="Wedding Invitation - សិរីមង្គលអាពាហ៍ពិពាហ៍" />
+        <meta property="og:description" content="យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញចូលរួមជាភ្ញៀវកិត្តិយស ក្នុងសិរីមង្គលអាពាហ៍ពិពាហ៍ កូនប្រុស សំណាង តាំងហ្វុង និង កូនស្រី ង៉ិន ស្រីរ៉េន" />
+        <meta property="og:image" content="https://wedding.nasfong.site/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/jpeg" />
+        {/* og:url is removed from static meta tags - will be set dynamically in page.tsx */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Wedding Invitation - Tangfong & Sreyren" />
+        <meta property="og:locale" content="km_KH" />
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Wedding Invitation - សិរីមង្គលអាពាហ៍ពិពាហ៍" />
+        <meta name="twitter:description" content="យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញចូលរួមជាភ្ញៀវកិត្តិយស ក្នុងសិរីមង្គលអាពាហ៍ពិពាហ៍" />
+        <meta name="twitter:image" content="https://wedding.nasfong.site/og-image.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

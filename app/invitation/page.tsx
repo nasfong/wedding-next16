@@ -11,7 +11,7 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
   
   const title = clientName 
     ? `Wedding Invitation for ${clientName} - សិរីមង្គលអាពាហ៍ពិពាហ៍`
-    : 'Wedding Invitation - សិរីមង្គលអាពាហ៍ពិពាហ៍ | Samnang & Sreyren';
+    : 'Wedding Invitation - សិរីមង្គលអាពាហ៍ពិពាហ៍ | Tangfong & Sreyren';
   
   const description = clientName
     ? `សូមគោរពអញ្ជើញ ${clientName} ចូលរួមជាភ្ញៀវកិត្តិយស ក្នុងសិរីមង្គលអាពាហ៍ពិពាហ៍ របស់ សំណាង តាំងហ្វុង និង ង៉ិន ស្រីរ៉េន`
@@ -24,12 +24,12 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
       title,
       description,
       url: 'https://wedding.nasfong.site/invitation',
-      siteName: 'Wedding Invitation - Samnang & Sreyren',
+      siteName: 'Wedding Invitation - Tangfong & Sreyren',
       images: [
         {
-          url: 'https://wedding.nasfong.site/images/gallery/8.jpg',
+          url: 'https://wedding.nasfong.site/og-image.jpg',
           width: 1200,
-          height: 1600,
+          height: 630,
           alt: 'Wedding Invitation - Samnang Tangfong & Ngin Sreyren',
           type: 'image/jpeg',
         },
@@ -41,7 +41,7 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
       card: 'summary_large_image',
       title,
       description,
-      images: ['https://wedding.nasfong.site/images/gallery/8.jpg'],
+      images: ['https://wedding.nasfong.site/og-image.jpg'],
     },
   };
 }

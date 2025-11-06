@@ -3,10 +3,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-khmer-title: 'Moul', 'Koulen', serif;
-  --font-khmer-elegant: 'Dangrek', 'Taprom', serif;
-  --font-khmer-body: 'Battambang', 'Hanuman', serif;
-  --font-khmer-fancy: 'Bokor', 'Fasthand', cursive;
+  --font-khmer-title: "Moul", "Koulen", serif;
+  --font-khmer-elegant: "Dangrek", "Taprom", serif;
+  --font-khmer-body: "Battambang", "Hanuman", serif;
+  --font-khmer-fancy: "Bokor", "Fasthand", cursive;
 }
 
 @theme inline {
@@ -29,8 +29,6 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: var(--font-khmer-body), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -69,3 +67,106 @@ video {
   font-family: var(--font-khmer-fancy);
   font-weight: 400;
 }
+
+/* Royal Magical Glow Animation for Name Border */
+@keyframes fire-glow {
+  0% {
+    filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.5)) 
+            drop-shadow(0 0 24px rgba(147, 51, 234, 0.4))
+            drop-shadow(0 0 36px rgba(126, 34, 206, 0.3))
+            saturate(1.2)
+            brightness(1.1);
+    transform: translateY(0px) scale(1);
+  }
+  33% {
+    filter: drop-shadow(0 0 16px rgba(192, 132, 252, 0.6)) 
+            drop-shadow(0 0 28px rgba(168, 85, 247, 0.5))
+            drop-shadow(0 0 40px rgba(147, 51, 234, 0.4))
+            saturate(1.4)
+            brightness(1.2);
+    transform: translateY(-3px) scale(1.03);
+  }
+  66% {
+    filter: drop-shadow(0 0 20px rgba(216, 180, 254, 0.7)) 
+            drop-shadow(0 0 32px rgba(192, 132, 252, 0.6))
+            drop-shadow(0 0 44px rgba(168, 85, 247, 0.5))
+            saturate(1.5)
+            brightness(1.25);
+    transform: translateY(-5px) scale(1.04);
+  }
+  100% {
+    filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.5)) 
+            drop-shadow(0 0 24px rgba(147, 51, 234, 0.4))
+            drop-shadow(0 0 36px rgba(126, 34, 206, 0.3))
+            saturate(1.2)
+            brightness(1.1);
+    transform: translateY(0px) scale(1);
+  }
+}
+
+.animate-fire-glow {
+  animation: fire-glow 4s ease-in-out infinite;
+}
+
+/* Luxurious Rainbow Shimmer Animation for Name Text */
+@keyframes shimmer {
+  0% {
+    background: linear-gradient(90deg, #881337, #be123c, #e11d48);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(190, 18, 60, 0.3),
+                 0 0 20px rgba(190, 18, 60, 0.2);
+  }
+  25% {
+    background: linear-gradient(90deg, #be123c, #e11d48, #f43f5e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(225, 29, 72, 0.4),
+                 0 0 25px rgba(225, 29, 72, 0.3),
+                 0 0 35px rgba(244, 63, 94, 0.2);
+  }
+  50% {
+    background: linear-gradient(90deg, #e11d48, #f43f5e, #fb7185);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(244, 63, 94, 0.5),
+                 0 0 30px rgba(244, 63, 94, 0.4),
+                 0 0 40px rgba(251, 113, 133, 0.3);
+  }
+  75% {
+    background: linear-gradient(90deg, #be123c, #e11d48, #f43f5e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(225, 29, 72, 0.4),
+                 0 0 25px rgba(225, 29, 72, 0.3),
+                 0 0 35px rgba(244, 63, 94, 0.2);
+  }
+  100% {
+    background: linear-gradient(90deg, #881337, #be123c, #e11d48);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(190, 18, 60, 0.3),
+                 0 0 20px rgba(190, 18, 60, 0.2);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 5s ease-in-out infinite;
+  background: linear-gradient(90deg, #881337, #be123c, #e11d48);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* body {
+  background-image: url('/ornate_border_bg.svg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+} */
