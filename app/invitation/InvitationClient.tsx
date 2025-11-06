@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useTransition } from '../components/TransitionProvider';
 import { useAudio } from '../components/AudioProvider';
 import { useEffect, useState } from 'react';
@@ -9,6 +9,8 @@ import HeartAnimation from '../components/HeartAnimation';
 
 export default function InvitationClient() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const clientName = searchParams.get('name');
   const { startTransition } = useTransition();
   const { isPlaying, toggleAudio, currentTime, duration, progressPercent } = useAudio();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -719,7 +721,7 @@ export default function InvitationClient() {
       {/* Back to Home */}
       <div className="fixed bottom-6 right-4 sm:bottom-8 sm:right-8">
         <button
-          onClick={() => startTransition(() => router.push('/'))}
+          onClick={() => startTransition(() => router.push(clientName ? `/?name=${encodeURIComponent(clientName)}` : '/'))}
           className="flex h-12 w-12 items-center justify-center rounded-full bg-rose-500 text-white shadow-2xl transition-all hover:scale-110 hover:bg-rose-600 sm:h-14 sm:w-14"
         >
           ←
@@ -729,7 +731,7 @@ export default function InvitationClient() {
       {/* Generate Link Button */}
       <div className="fixed bottom-6 left-4 sm:bottom-8 sm:left-8">
         <button
-          onClick={() => startTransition(() => router.push('/'))}
+          onClick={() => startTransition(() => router.push(clientName ? `/?name=${encodeURIComponent(clientName)}` : '/'))}
           className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-rose-600 shadow-2xl transition-all hover:scale-105 hover:bg-rose-50 sm:px-6 sm:py-3"
           title="Go to home"
         >
